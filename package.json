@@ -1,0 +1,23 @@
+{
+  "name": "pgats-api-avaliacao",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start-graphql": "node graphql/server.js",
+    "test-rest": "mocha 'tests/rest/**/*.test.js' --timeout 10000 --reporter mochawesome",
+    "test-graphql": "mocha 'tests/rest/**/*.test.js' --timeout 10000 --reporter mochawesome"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "supertest": "^7.1.4",
+    "swagger-ui-express": "^4.6.3"
+  },
+  "devDependencies": {
+    "chai": "^6.0.1",
+    "mocha": "^11.7.2",
+    "mochawesome": "^7.1.4",
+    "sinon": "^21.0.0"
+  }
+}
