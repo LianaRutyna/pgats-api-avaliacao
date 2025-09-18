@@ -1,0 +1,38 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run REST tests
+      run: npm run test-rest
+
+    - name: Run GraphQL tests
+      run: npm run test-graphql
+
+    - name: Subir a API Rest 
+      run: npm run start &
+
+    - name: Subir a API GraphQL 
+      run: npm run start-graphql &
+
+    - name: Esperar as APIs estarem Funcionando
+      run: sleep 8
